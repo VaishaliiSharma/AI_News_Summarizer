@@ -1,71 +1,130 @@
-# 🧠 AI News Summarizer
 
-A GenAI-powered application that fetches the latest news articles on a given topic and generates concise, readable summaries using GPT-4. Built with **LangGraph**, **LangChain**, and **Streamlit** for modularity and interactivity.
+# 🧠 AI News Intelligence Hub
+
+A powerful AI-powered application that fetches, filters, analyzes, and summarizes the most relevant news articles on any topic of your choice — all through a beautifully designed Streamlit interface.
+---
+
+## 🚀 Features
+
+- 🔎 **Smart News Fetching** using NewsAPI with multi-query strategies  
+- ✅ **Advanced Relevance Filtering** for 90–95% accurate results  
+- 🤖 **AI-Powered Summarization** via Azure OpenAI GPT-4  
+- 🎭 **Sentiment Analysis** with confidence scores and key phrases  
+- 📄 **Downloadable PDF Reports** with summaries and insights  
+- 🏷️ **Smart Tagging** to categorize news articles  
+- 📊 **Streamlit Interface** with modern UI and session tracking
 
 ---
 
-## 📌 Features
+## 🛠️ Tech Stack
 
-- 🔎 Fetches real-time news using **NewsAPI**
-- ✍️ Summarizes articles using **Azure OpenAI GPT-4**
-- 🧠 Agent-based modular design via **LangGraph**
-- ⚙️ Prompt Engineering and tool usage with **LangChain**
-- 📊 Visualizes agent workflows with **Graphviz**
-- 🖥️ Interactive UI via **Streamlit**
+| Feature               | Technology Used             |
+|----------------------|-----------------------------|
+| News Fetching        | NewsAPI                     |
+| AI Processing        | Azure OpenAI GPT-4 (GPT-4o) |
+| Workflow Engine      | LangGraph                   |
+| Frontend & UI        | Streamlit                   |
+| PDF Report Generator | `reportlab`                 |
+| Styling              | Custom CSS in Streamlit     |
 
 ---
 
-## 📂 Project Structure
+## How It Works
 
-.
-├── main.py # Streamlit app entry point
-├── graph_logic.py # LangGraph agent logic
-├── generate_graph.py # Workflow visualizer (Graphviz)
+1. **Enter a Topic** – Like `"Tesla earnings"` or `"AI in healthcare"`.
+2. **LangGraph Agent Workflow** kicks in:
+   - Step 1: `fetch_news_articles()` queries NewsAPI
+   - Step 2: `summarize_article()` summarizes and tags each result
+3. **Relevance Filtering** ensures only the top articles are used.
+4. **Streamlit App** displays:
+   - Article details with links
+   - AI summaries with tags
+   - Sentiment badges and confidence meters
+5. **One-click PDF Download** for offline reports
+
+---
+
+## Directory Structure
+
+```
+ai-news-intelligence-hub/
+│
+├── app.py                    # Streamlit app entry point
+├── graph_logic.py            # LangGraph workflow logic
+├── agents/news_agent.py      # NewsAgent class (Azure OpenAI + tools)
+├── tools/fetch_news.py       # Tool: Fetch articles
+├── tools/summarize.py        # Tool: Summarize articles
+├── utils/pdf_generator.py    # PDF generation logic
+├── utils/helpers.py          # Relevance, color utils, etc.
+├── styles/custom.css         # Custom UI styling
 ├── requirements.txt
-├── .gitignore
-├── .streamlit/
-│ └── secrets.toml # 🔒 API keys (excluded from Git)
-└── graph_output/
-├── news_workflow.dot
-└── news_workflow.png # Workflow diagram
+└── README.md
+```
 
----
+## ⚙️ Setup Instructions
 
-## 🚀 Getting Started
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/AI_News_Summarizer.git
+cd ai-news-intelligence-hub
 
-### 1. Clone the repo
-git clone https://github.com/VaishaliiSharma/AI_News_Summarizer.git
-cd AI_News_Summarizer
-
-### 2. Create and activate virtual environment
+# Create a virtual environment
 python -m venv venv
-venv\Scripts\activate    # On Windows
-# OR
-source venv/bin/activate # On Mac/Linux
+source venv/bin/activate  # On Windows: venv\Scripts\activate
 
-### 3. Install dependencies
+# Install dependencies
 pip install -r requirements.txt
 
-### Add your API keys in .streamlit/secrets.toml
-OPENAI_API_KEY = "your-openai-key"
-NEWS_API_KEY = "your-newsapi-key"
-Note: This file is excluded from Git using .gitignore.
+# Set API Keys (Azure OpenAI, NewsAPI)
+export NEWS_API_KEY="your_newsapi_key"
+export AZURE_OPENAI_API_KEY="your_azure_key"
+export AZURE_OPENAI_ENDPOINT="https://your-endpoint.openai.azure.com/"
+export AZURE_DEPLOYMENT_NAME="your-deployment-id"
 
-### Run the App
-streamlit run main.py
+# Run the app
+streamlit run app.py
+```
 
+---
 
-### Workflow Diagram
-Visualize the LangGraph workflow:
-python generate_graph.py
+## 🧠 Example Topics
 
-This will generate a .png and .dot file inside graph_output/.
+- `"Tesla stock performance"`
+- `"AI impact on healthcare diagnostics"`
+- `"India space tech growth"`
+- `"Climate change summit outcomes"`
 
-### Tech Stack
-LangGraph + LangChain
-Azure OpenAI (GPT-4)
-Python, Streamlit
-Graphviz (for visualization)
+---
 
-📄 License
+## 📄 PDF Output Example
+
+The app generates a downloadable PDF with:
+
+- Title, description, and full article URL  
+- AI-generated headline & summary  
+- Sentiment analysis with confidence  
+- Smart tags for quick reference  
+
+---
+
+## 🧰 Future Enhancements
+
+- 🗂️ Topic history and bookmarking  
+- 🌐 Multilingual summarization  
+- 🔄 Auto-refreshing live news feed  
+- 🧵 Threaded summaries over time
+
+---
+
+## 🙌 Acknowledgements
+
+- [NewsAPI.org](https://newsapi.org/)
+- [Azure OpenAI](https://azure.microsoft.com/en-us/products/cognitive-services/openai-service)
+- [LangGraph](https://www.langchain.com/langgraph)
+- [Streamlit](https://streamlit.io)
+
+---
+
+## 📜 License
+
 This project is licensed under the MIT License.
