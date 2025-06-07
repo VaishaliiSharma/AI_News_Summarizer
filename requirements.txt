@@ -1,0 +1,5 @@
+transformers
+streamlit
+newsapi-python
+langgraph
+langchain>=0.1.17

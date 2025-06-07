@@ -1,0 +1,9 @@
+digraph G {
+    "get_news" [label="get_news"];
+    "summarize_news" [label="summarize_news"];
+    "generate_pdf" [label="generate_pdf"];
+    "__start__" -> "get_news";
+    "get_news" -> "summarize_news";
+    "summarize_news" -> "generate_pdf";
+    "generate_pdf" -> "__end__";
+}
